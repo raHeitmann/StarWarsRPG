@@ -1,3 +1,6 @@
+$(function() {
+
+
 var character1 = {
 				name:'Obi Wan Kenobi',
 				HP: '180',
@@ -30,3 +33,49 @@ console.log(character1);
 console.log(character2);
 console.log(character3);
 console.log(character4);
+
+var hero = {};
+
+$('#obiWan').click(function()
+{
+	hero = character1;
+	charSelect(character1);
+});
+
+$('#lukeSkywalker').click(function()
+{
+	hero = character2;
+	charSelect(hero);
+});
+
+$('#maceWindu').click(function()
+{
+	hero = character3;
+	charSelect(hero);
+});
+
+$('#yoda').click(function()
+{
+	hero = character4;
+	charSelect(hero);
+});
+
+
+
+
+function charSelect(hero)
+{
+	console.log("you've chosen "+ hero.name);
+	var baseATK = hero.baseAtkPwr;
+	var totalATK = hero.baseAtkPwr;
+	var heroHP = hero.HP;
+
+	console.log("this character has a base attack power of "+baseATK);
+	console.log("this character has a total of "+heroHP+" hit points");
+
+
+}
+
+
+
+});
