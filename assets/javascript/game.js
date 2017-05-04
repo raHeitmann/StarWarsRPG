@@ -36,27 +36,34 @@ console.log(character4);
 
 var hero = {};
 
+var heroImg = $('#obiWan');
+
+
 $('#obiWan').click(function()
 {
 	hero = character1;
+	heroImg = $('#obiWan');
 	charSelect(character1);
 });
 
 $('#lukeSkywalker').click(function()
 {
 	hero = character2;
+	heroImg = $('#lukeSkywalker');
 	charSelect(hero);
 });
 
 $('#maceWindu').click(function()
 {
 	hero = character3;
+	heroImg = $('#maceWindu');
 	charSelect(hero);
 });
 
 $('#yoda').click(function()
 {
 	hero = character4;
+	heroImg = $('#yoda');
 	charSelect(hero);
 });
 
@@ -72,6 +79,13 @@ function charSelect(hero)
 
 	console.log("this character has a base attack power of "+baseATK);
 	console.log("this character has a total of "+heroHP+" hit points");
+
+	$('#availableCharacters').html("");
+
+	$('#yourCharacter').html(heroImg);
+
+
+
 
 
 }
