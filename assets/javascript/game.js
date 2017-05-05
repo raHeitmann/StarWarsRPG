@@ -127,16 +127,22 @@ function charSelect(hero)
 
 	enemyImg1.click(function(){
 		currentEnemy = enemy1;
+		$('#availableEnemies').html(enemyImg2);
+		$('#availableEnemies').append(enemyImg3);
 		enemySelect(currentEnemy);
 	});
 
 	enemyImg2.click(function(){
 		currentEnemy = enemy2;
+		$('#availableEnemies').html(enemyImg1);
+		$('#availableEnemies').append(enemyImg3);
 		enemySelect(currentEnemy);
 	});
 
 	enemyImg3.click(function(){
 		currentEnemy = enemy3;
+		$('#availableEnemies').html(enemyImg1);
+		$('#availableEnemies').append(enemyImg2);
 		enemySelect(currentEnemy);
 	});
 
@@ -163,7 +169,12 @@ function charSelect(hero)
 
 				if (heroHP < 1)
 				{
-					$('#end').html('You lose!')
+					$('#end').html('You lose!');
+				}
+
+				else if (enemyHP < 0)
+				{
+					$('#end').html('You have won this battle...');
 				}
 
 			});
