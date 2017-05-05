@@ -45,9 +45,12 @@ var enemy3 = {};
 
 
 var heroImg = $('#obiWan');
+var currentEnemyImg = $('#obiWan');
+
 var enemyImg1 = $('#obiWan');
 var enemyImg2 = $('#obiWan');
 var enemyImg3 = $('#obiWan');
+
 
 
 $('#obiWan').click(function()
@@ -127,6 +130,7 @@ function charSelect(hero)
 
 	enemyImg1.click(function(){
 		currentEnemy = enemy1;
+		currentEnemyImg = enemyImg1;
 		$('#availableEnemies').html(enemyImg2);
 		$('#availableEnemies').append(enemyImg3);
 		enemySelect(currentEnemy);
@@ -134,6 +138,7 @@ function charSelect(hero)
 
 	enemyImg2.click(function(){
 		currentEnemy = enemy2;
+		currentEnemyImg = enemyImg2;
 		$('#availableEnemies').html(enemyImg1);
 		$('#availableEnemies').append(enemyImg3);
 		enemySelect(currentEnemy);
@@ -141,6 +146,7 @@ function charSelect(hero)
 
 	enemyImg3.click(function(){
 		currentEnemy = enemy3;
+		currentEnemyImg = enemyImg3;
 		$('#availableEnemies').html(enemyImg1);
 		$('#availableEnemies').append(enemyImg2);
 		enemySelect(currentEnemy);
@@ -149,7 +155,7 @@ function charSelect(hero)
 	function enemySelect(enemy)
 		{
 			enemy = currentEnemy;
-			console.log(enemy);	
+			$('#currentEnemy').append(currentEnemyImg);	
 
 			var enemyHP = parseInt(enemy.HP);
 			var enemyATK = parseInt(enemy.counterAtk);
