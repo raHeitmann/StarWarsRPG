@@ -1,6 +1,5 @@
 $(function () {
 
-
 var character1 = {
 				name:'Obi Wan Kenobi',
 				HP: '400',
@@ -53,6 +52,32 @@ var currentEnemyImg = $('#obiWan');
 var enemyImg1 = $('#obiWan');
 var enemyImg2 = $('#obiWan');
 var enemyImg3 = $('#obiWan');
+
+var wins = 0;
+
+function reset ()
+{
+	$('#atkBtn').hide();
+
+	hero = {};
+	currentEnemy = {};
+
+	enemy1 = {};
+	enemy2 = {};
+	enemy3 = {};
+
+	enemyHP = 0;
+	enemyATK = 0;
+
+	heroImg = $('#obiWan');
+	currentEnemyImg = $('#obiWan');
+
+	enemyImg1 = $('#obiWan');
+	enemyImg2 = $('#obiWan');
+	enemyImg3 = $('#obiWan');
+
+	wins = 0;
+
 
 
 
@@ -111,14 +136,7 @@ $('#yoda').click(function()
 });
 
 
-function reset()
-{
-	$('#availableCharacters').html(character1);
-	$('#availableCharacters').append(character2);
-	$('#availableCharacters').append(character3);
-	$('#availableCharacters').append(character4);
 
-};
 
 function charSelect(hero)
 {
@@ -180,6 +198,8 @@ function charSelect(hero)
 				console.log(enemyHP);
 				console.log(heroHP);
 
+				$('#atkBtn').show();
+
 
 
 
@@ -205,24 +225,35 @@ function charSelect(hero)
 					$('#end').html('You have won this battle...');
 					$('#currentEnemy').html("Current Enemy: ");	
 
+					wins++;
+					console.log(wins);
+					$('#atkBtn').hide();
 
-					enemyImg1.click(function(){
-						currentEnemy = enemy1;
-						currentEnemyImg = enemyImg1;
-						enemySelect(currentEnemy);
-					});
+					if(wins === 3)
+					{
+						alert("you win!");
+						reset();
+					}
 
-					enemyImg2.click(function(){
-						currentEnemy = enemy2;
-						currentEnemyImg = enemyImg2;
-						enemySelect(currentEnemy);
-					});
+					else{
+						enemyImg1.click(function(){
+							currentEnemy = enemy1;
+							currentEnemyImg = enemyImg1;
+							enemySelect(currentEnemy);
+						});
 
-					enemyImg3.click(function(){
-						currentEnemy = enemy3;
-						currentEnemyImg = enemyImg3;
-						enemySelect(currentEnemy);
-					});
+						enemyImg2.click(function(){
+							currentEnemy = enemy2;
+							currentEnemyImg = enemyImg2;
+							enemySelect(currentEnemy);
+						});
+
+						enemyImg3.click(function(){
+							currentEnemy = enemy3;
+							currentEnemyImg = enemyImg3;
+							enemySelect(currentEnemy);
+						});
+					}
 
 
 				}
@@ -236,6 +267,8 @@ function charSelect(hero)
 		}
 
 }
+}
 
+reset();
 
 });
