@@ -41,6 +41,9 @@ var enemy1 = {};
 var enemy2 = {};
 var enemy3 = {};
 
+var enemyHP = 0;
+var enemyATK = 0;
+
 
 
 
@@ -113,12 +116,15 @@ $('#yoda').click(function()
 function charSelect(hero)
 {
 	console.log("you've chosen "+ hero.name);
+
 	var baseATK = parseInt(hero.baseAtkPwr);
 	var totalATK = parseInt(hero.baseAtkPwr);
 	var heroHP = parseInt(hero.HP);
 
+
 	console.log("this character has a base attack power of "+baseATK);
 	console.log("this character has a total of "+heroHP+" hit points");
+
 
 	$('#availableCharacters').html("");
 
@@ -127,6 +133,8 @@ function charSelect(hero)
 	$('#availableEnemies').append(enemyImg1);
 	$('#availableEnemies').append(enemyImg2);
 	$('#availableEnemies').append(enemyImg3);
+
+
 
 	enemyImg1.click(function(){
 		currentEnemy = enemy1;
@@ -152,16 +160,21 @@ function charSelect(hero)
 		enemySelect(currentEnemy);
 	});
 
+
+
 	function enemySelect(enemy)
 		{
 			enemy = currentEnemy;
 			$('#currentEnemy').append(currentEnemyImg);	
-
-			var enemyHP = parseInt(enemy.HP);
-			var enemyATK = parseInt(enemy.counterAtk);
-
+			enemyHP = parseInt(enemy.HP);
+			enemyATK = parseInt(enemy.counterAtk);
+			$('#score').html('Enemy HP: '+enemyHP+'<br>');
+			$('#score').append('Your HP: '+heroHP);
 				console.log(enemyHP);
 				console.log(heroHP);
+
+
+
 
 			$('#atkBtn').click(function(){
 				console.log(totalATK);
@@ -181,9 +194,35 @@ function charSelect(hero)
 				else if (enemyHP < 0)
 				{
 					$('#end').html('You have won this battle...');
+					$('#currentEnemy').html("Current Enemy: ");	
+
+
+					enemyImg1.click(function(){
+						currentEnemy = enemy1;
+						currentEnemyImg = enemyImg1;
+						enemySelect(currentEnemy);
+					});
+
+					enemyImg2.click(function(){
+						currentEnemy = enemy2;
+						currentEnemyImg = enemyImg2;
+						enemySelect(currentEnemy);
+					});
+
+					enemyImg3.click(function(){
+						currentEnemy = enemy3;
+						currentEnemyImg = enemyImg3;
+						enemySelect(currentEnemy);
+					});
+
+
 				}
 
 			});
+
+
+
+
 
 		}
 
