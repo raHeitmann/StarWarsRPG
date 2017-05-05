@@ -1,30 +1,30 @@
-$(function() {
+$(function () {
 
 
 var character1 = {
 				name:'Obi Wan Kenobi',
-				HP: '180',
+				HP: '400',
 				baseAtkPwr:'8',
 				counterAtk:'17'
 				};
 
 var character2 = {
 				name:'Luke Skywalker',
-				HP: '200',
+				HP: '360',
 				baseAtkPwr:'7',
 				counterAtk:'19'
 				};
 
 var character3 = {
 				name:'Mace Windu',
-				HP: '170',
+				HP: '380',
 				baseAtkPwr:'6',
 				counterAtk:'20'
 				};
 
 var character4 = {
 				name: 'Yoda',
-				HP: '160',
+				HP: '420',
 				baseAtkPwr:'7',
 				counterAtk:'22'
 				};
@@ -65,7 +65,7 @@ $('#obiWan').click(function()
 	enemyImg2 = $('#maceWindu');
 	enemy2 = character3;
 	enemyImg3 = $('#yoda');
-	enemy4 = character4;
+	enemy3 = character4;
 	charSelect(hero);
 
 });
@@ -111,7 +111,14 @@ $('#yoda').click(function()
 });
 
 
+function reset()
+{
+	$('#availableCharacters').html(character1);
+	$('#availableCharacters').append(character2);
+	$('#availableCharacters').append(character3);
+	$('#availableCharacters').append(character4);
 
+};
 
 function charSelect(hero)
 {
@@ -189,9 +196,11 @@ function charSelect(hero)
 				if (heroHP < 1)
 				{
 					$('#end').html('You lose!');
+					reset();
+					
 				}
 
-				else if (enemyHP < 0)
+				else if (enemyHP < 1)
 				{
 					$('#end').html('You have won this battle...');
 					$('#currentEnemy').html("Current Enemy: ");	

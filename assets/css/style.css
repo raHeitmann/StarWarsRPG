@@ -1,6 +1,13 @@
+*{
+	background-color: black;
+	color: white;
+	font-size: 30px;
+}
+
 .characterImg 
 {
 	height:150px;
 	width:150px;
 	margin:10px;
 }
+
