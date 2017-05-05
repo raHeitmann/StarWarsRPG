@@ -37,19 +37,29 @@ console.log(character4);
 var hero = {};
 
 var heroImg = $('#obiWan');
+var enemyImg1 = $('#obiWan');
+var enemyImg2 = $('#obiWan');
+var enemyImg3 = $('#obiWan');
 
 
 $('#obiWan').click(function()
 {
 	hero = character1;
 	heroImg = $('#obiWan');
-	charSelect(character1);
+	enemyImg1 = $('#lukeSkywalker');
+	enemyImg2 = $('#maceWindu');
+	enemyImg3 = $('#yoda');
+	charSelect(hero);
+
 });
 
 $('#lukeSkywalker').click(function()
 {
 	hero = character2;
 	heroImg = $('#lukeSkywalker');
+	enemyImg1 = $('#obiWan');
+	enemyImg2 = $('#maceWindu');
+	enemyImg3 = $('#yoda');
 	charSelect(hero);
 });
 
@@ -57,6 +67,9 @@ $('#maceWindu').click(function()
 {
 	hero = character3;
 	heroImg = $('#maceWindu');
+	enemyImg1 = $('#lukeSkywalker');
+	enemyImg2 = $('#obiWan');
+	enemyImg3 = $('#yoda');
 	charSelect(hero);
 });
 
@@ -64,7 +77,11 @@ $('#yoda').click(function()
 {
 	hero = character4;
 	heroImg = $('#yoda');
+	enemyImg1 = $('#lukeSkywalker');
+	enemyImg2 = $('#maceWindu');
+	enemyImg3 = $('#obiWan');
 	charSelect(hero);
+
 });
 
 
@@ -82,10 +99,14 @@ function charSelect(hero)
 
 	$('#availableCharacters').html("");
 
-	$('#yourCharacter').html(heroImg);
+	$('#yourCharacter').append(heroImg);
+
+	$('#availableEnemies').append(enemyImg1);
+	$('#availableEnemies').append(enemyImg2);
+	$('#availableEnemies').append(enemyImg3);
 
 
-
+	
 
 
 }
