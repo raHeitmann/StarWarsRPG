@@ -110,9 +110,9 @@ $('#yoda').click(function()
 function charSelect(hero)
 {
 	console.log("you've chosen "+ hero.name);
-	var baseATK = hero.baseAtkPwr;
-	var totalATK = hero.baseAtkPwr;
-	var heroHP = hero.HP;
+	var baseATK = parseInt(hero.baseAtkPwr);
+	var totalATK = parseInt(hero.baseAtkPwr);
+	var heroHP = parseInt(hero.HP);
 
 	console.log("this character has a base attack power of "+baseATK);
 	console.log("this character has a total of "+heroHP+" hit points");
@@ -143,13 +143,27 @@ function charSelect(hero)
 	function enemySelect(enemy)
 		{
 			enemy = currentEnemy;
-			console.log(enemy);
+			console.log(enemy);	
+
+			var enemyHP = parseInt(enemy.HP);
+			var enemyATK = parseInt(enemy.counterAtk);
+
+				console.log(enemyHP);
+				console.log(heroHP);
+
+			$('#atkBtn').click(function(){
+				console.log(totalATK);
+				enemyHP = enemyHP - totalATK;
+				heroHP = heroHP - enemyATK;
+
+				totalATK = totalATK + baseATK;
+
+				console.log(enemyHP);
+				console.log(heroHP);
+
+			});
+
 		}
-
-
-
-
-
 
 }
 
