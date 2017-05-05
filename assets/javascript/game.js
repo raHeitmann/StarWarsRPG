@@ -159,8 +159,12 @@ function charSelect(hero)
 				totalATK = totalATK + baseATK;
 
 				$('#score').html('Enemy HP: '+enemyHP+'<br>');
-				
 				$('#score').append('Your HP: '+heroHP);
+
+				if (heroHP < 1)
+				{
+					$('#end').html('You lose!')
+				}
 
 			});
 
