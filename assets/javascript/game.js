@@ -158,8 +158,9 @@ function charSelect(hero)
 
 				totalATK = totalATK + baseATK;
 
-				console.log(enemyHP);
-				console.log(heroHP);
+				$('#score').html('Enemy HP: '+enemyHP+'<br>');
+				
+				$('#score').append('Your HP: '+heroHP);
 
 			});
 
