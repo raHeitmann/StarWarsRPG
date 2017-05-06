@@ -81,6 +81,8 @@ function reset ()
 
 
 
+
+
 $('#obiWan').click(function()
 {
 	hero = character1;
@@ -220,7 +222,7 @@ function charSelect(hero)
 					
 				}
 
-				else if (enemyHP < 1)
+				else if (enemyHP < 0)
 				{
 					$('#end').html('You have won this battle...');
 					$('#currentEnemy').html("Current Enemy: ");	
@@ -229,7 +231,7 @@ function charSelect(hero)
 					console.log(wins);
 					$('#atkBtn').hide();
 
-					if(wins === 3)
+					if(wins === 4)
 					{
 						alert("you win!");
 						reset();
